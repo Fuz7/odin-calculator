@@ -1,37 +1,156 @@
-let operator = "/"
 function operate(a,operator,b){
 
     switch (operator){
 
         case "+":
-            return a + b
+            return Number(a) + Number(b)
         case "-":
-            return a - b
+            return Number(a) - Number(b)
         case "*":
-            return a * b
+            return Math.round((Number(a) * Number(b)) * 10000000000) / 10000000000
         case "/":
-            return a / b
+            // to round to the 10th decimal place
+            return Math.round((Number(a) / Number(b)) * 10000000000) / 10000000000
             
     }
 }
 
 
-console.log(`value of add is ${operate(4,"+",4)}`)
-console.log(`value of minus is ${operate(4,"-",4)}`)
-console.log(`value of multiplacation is ${operate(4,"*",4)}`)
-console.log(`value of divide is ${operate(4,operator,4)}`)
+
 
 
 let numpad = document.getElementById('keyContainer')
 
-let keys = document.getElementsByClassName("keybtn")
 
+
+let output = ''
+
+function updateDisplay(){
+    let display = document.getElementById('display')
+    
+
+    if (output){
+        display.textContent = output
+    }
+    else if(output === 0){
+        display.textContent = output
+    }
+}
+
+function clearDisplay(){
+    display.textContent = ''
+}
+
+
+function periodCheck(string){
+    if (string.includes('.')) return true
+    return false
+}
+
+function deleteNum(string){
+    string = string.slice(0,string.length - 1)
+    return string
+}
+
+updateDisplay()
+
+function updateOperatorDisplay(){
+    let operatorDisplay = document.getElementById('operationDisplay')
+    operatorDisplay.textContent = output + ' ' + operator + ' ' + operand
+}
+
+function clearOperatorDisplay(){
+    let operatorDisplay = document.getElementById('operationDisplay')
+    operatorDisplay.textContent = '';
+}
+
+
+let keys = document.getElementsByClassName("keybtn")
 keys = Array.from(keys)
+
+let operator = ''
+let operand = ''
+let usedOperation = '';
+
+
 keys.forEach(key => {
-    key.addEventListener('mouseenter',function(){
-        this.classList.toggle('active')
+    key.addEventListener('click',function(){
+        let number = Number(this.value)
+        if (!(operator)){
+
+            if(number >= 1 && number <= 9 && operator === '' && output.length < 15){
+                output += this.value
+                updateDisplay()
+            }
+            else if(number === 0 && output != '' && output.length < 15){
+                output += this.value
+                updateDisplay()
+            }
+            else if(this.value === '.' && periodCheck(output) === false){
+                output += this.value
+                updateDisplay()
+            }
+            else if(this.value === 'clear'){
+                output = ''
+                usedOperation = ''
+                clearDisplay()
+            }
+            else if(usedOperation != 1 && this.value === 'delete'){
+                output = deleteNum(output)
+                updateDisplay()
+            }
+            else if(!(output === '' || output === '.') && (this.value === '+' || this.value === '-' || this.value === '*' || this.value === '/')){
+                clearDisplay()
+                operator = this.value
+                updateOperatorDisplay()
+            }
+        }else if(operator){
+            if(number >= 1 && number <= 9 && operand.length < 15){
+                operand += this.value
+                updateOperatorDisplay()
+            }
+            else if(number === 0 && operand != '' && operand.length < 15){
+                operand += this.value
+                updateOperatorDisplay()
+            }
+            else if(this.value === '.' && periodCheck(operand) === false){
+                operand += this.value
+                updateOperatorDisplay()
+            }
+            else if(this.value === 'clear'){
+                output = ''
+                operator = ''
+                operand = ''
+                usedOperation = ''
+                clearDisplay()
+                updateOperatorDisplay()
+            }
+            else if((operand === '') && (this.value === '+' || this.value === '-' || this.value === '*' || this.value === '/')){
+                operator = this.value
+                updateOperatorDisplay()
+            }
+            else if(this.value === 'delete'){
+                operand = deleteNum(operand)
+                updateOperatorDisplay()
+            }
+            else if((!(operand === '')) && this.value === '='){
+                output = operate(output,operator,operand)
+                operator = ''
+                operand = ''
+                usedOperation = 1;
+                clearOperatorDisplay()
+                updateDisplay()
+            }
+            else if(!(operand === '') && this.value === '+' || this.value === '-' || this.value === '*' || this.value === '/'){
+                output = operate(output,operator,operand)
+                operator = this.value
+                operand = ''
+                usedOperation = 1;
+                updateOperatorDisplay()
+            }
+        }
+        
+
     })
-    key.addEventListener('mouseleave',function(){
-        this.classList.toggle('active')
-    })
-});
+
+})

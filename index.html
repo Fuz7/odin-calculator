@@ -8,44 +8,48 @@
     <script src="./calculator.js" defer ></script>
 </head>
 <body>
-    <div class="columnContainer">
-        <div class="display">
-                1231231231
-        </div>
 
+    <div id="operationDisplay" class="operationDisplay"></div>
+
+    <div class="columnContainer">
+        
+        <div id="display" class="display">
+                
+        </div>
+        
         <div id="keyContainer" class="keyContainer">
 
             <div class="topButtons">
-                <button id="clear" class="keybtn">Clear</button>
-                <button id="deleteButton" class="keybtn">Delete</button>
-                <button id="numDiv" class="keybtn">/</button>
+                <button id="clear" value="clear" class="keybtn">Clear</button>
+                <button id="deleteButton" value="delete" class="keybtn">Delete</button>
+                <button id="numDiv" value="/" class="keybtn">/</button>
             </div>
 
             <div class="topNumkeys">
-                <button id="num7" class="keybtn">7</button>
-                <button id="num8" class="keybtn">8</button>
-                <button id="num9" class="keybtn">9</button>
-                <button id="numMult" class="keybtn">*</button>
+                <button id="num7" value="7" class="keybtn">7</button>
+                <button id="num8" value="8" class="keybtn">8</button>
+                <button id="num9" value="9" class="keybtn">9</button>
+                <button id="numMult" value='*' class="keybtn">*</button>
             </div>
 
             <div class="midNumkeys">
-                <button id="num4" class="keybtn">4</button>
-                <button id="num5" class="keybtn">5</button>
-                <button id="num6" class="keybtn">6</button>
-                <button id="numMin" class="keybtn">-</button>
+                <button id="num4" value="4" class="keybtn">4</button>
+                <button id="num5" value="5" class="keybtn">5</button>
+                <button id="num6" value="6" class="keybtn">6</button>
+                <button id="numMin" value="-" class="keybtn">-</button>
             </div>
 
             <div class="lowerNumkeys">
-                <button id="num1" class="keybtn">1</button>
-                <button id="num2" class="keybtn">2</button>
-                <button id="num3" class="keybtn">3</button>
-                <button id="numPlus" class="keybtn">+</button>
+                <button id="num1" value="1" class="keybtn">1</button>
+                <button id="num2" value="2" class="keybtn">2</button>
+                <button id="num3" value="3" class="keybtn">3</button>
+                <button id="numPlus" value="+" class="keybtn">+</button>
             </div>
 
             <div class="bottomButtons">
-                <button id="num0" class="keybtn">0</button>
-                <button id="numdot" class="keybtn">.</button>
-                <button id="numEqual" class="keybtn">=</button>
+                <button id="num0" value="0" class="keybtn">0</button>
+                <button id="numdot" value="." class="keybtn">.</button>
+                <button id="numEqual" value="=" class="keybtn">=</button>
             </div>
 
         </div>
