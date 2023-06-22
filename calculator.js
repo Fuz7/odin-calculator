@@ -168,3 +168,8 @@ keys.forEach(key => {
     })
 
 })
+
+window.addEventListener('keydown', function(event){
+    let button = document.querySelector(`button[data-key="${event.key}"]`)
+    if (button) button.click()
+})
