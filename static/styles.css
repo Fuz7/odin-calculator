@@ -1,0 +1,85 @@
+*{
+    background-color: lightgray;
+    box-sizing: border-box;
+}
+
+
+.columnContainer{
+    border: black solid 8px;
+    width: 350px;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    padding: 4px;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+}
+
+.display{
+    width: 90%;
+    height: 65px;
+    border: black solid 3px;
+    margin: 14px auto;
+    text-align: right;
+    overflow: hidden;
+    font-size: 55px;
+    text-overflow: hidden;
+}
+
+.display > div{
+    font-size: 65px;
+}
+
+.topButtons,
+.topNumkeys,
+.midNumkeys,
+.lowerNumkeys,
+.bottomButtons{
+    margin: 2px 12px 0px;
+    display: flex;
+    height: 60px;
+    gap: 1px;
+    background-color: gray;
+}
+
+.topButtons > button,
+.topNumkeys > button,
+.midNumkeys > button,
+.lowerNumkeys > button,
+.bottomButtons > button
+{
+    flex-grow: 1;
+    border: black solid 3px;
+    font-size: 20px;
+}
+
+.topButtons #numDiv,
+.topNumkeys #numMult,
+.midNumkeys #numMin,
+.lowerNumkeys #numPlus{
+    flex-grow: 0;
+    width: 50px;
+}
+
+.topButtons #clear{
+    flex-grow: 3;
+}
+
+.topNumkeys button{
+    flex-grow: 1;
+}
+
+.bottomButtons #num0,#numdot{
+    flex-grow: 0;
+    width: 83px;
+}
+
+.keyContainer{
+    background-color: gray;
+}
+
+.keybtn.active{
+    background-color: white;
+}

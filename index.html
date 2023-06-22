@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculator</title>
     <link rel="stylesheet" href="static/styles.css">
-    <script src="./calculator.js"></script>
+    <script src="./calculator.js" defer ></script>
 </head>
 <body>
-    
+    <div class="columnContainer">
+        <div class="display">
+                1231231231
+        </div>
+
+        <div id="keyContainer" class="keyContainer">
+
+            <div class="topButtons">
+                <button id="clear" class="keybtn">Clear</button>
+                <button id="deleteButton" class="keybtn">Delete</button>
+                <button id="numDiv" class="keybtn">/</button>
+            </div>
+
+            <div class="topNumkeys">
+                <button id="num7" class="keybtn">7</button>
+                <button id="num8" class="keybtn">8</button>
+                <button id="num9" class="keybtn">9</button>
+                <button id="numMult" class="keybtn">*</button>
+            </div>
+
+            <div class="midNumkeys">
+                <button id="num4" class="keybtn">4</button>
+                <button id="num5" class="keybtn">5</button>
+                <button id="num6" class="keybtn">6</button>
+                <button id="numMin" class="keybtn">-</button>
+            </div>
+
+            <div class="lowerNumkeys">
+                <button id="num1" class="keybtn">1</button>
+                <button id="num2" class="keybtn">2</button>
+                <button id="num3" class="keybtn">3</button>
+                <button id="numPlus" class="keybtn">+</button>
+            </div>
+
+            <div class="bottomButtons">
+                <button id="num0" class="keybtn">0</button>
+                <button id="numdot" class="keybtn">.</button>
+                <button id="numEqual" class="keybtn">=</button>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
