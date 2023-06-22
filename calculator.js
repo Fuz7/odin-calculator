@@ -1,5 +1,9 @@
 function operate(a,operator,b){
 
+    if (operator === '/' && Number(b) === 0){
+       return "bruh"
+    }
+
     switch (operator){
 
         case "+":
@@ -35,6 +39,10 @@ function updateDisplay(){
     else if(output === 0){
         display.textContent = output
     }
+
+    if (output === 'bruh'){
+        output = ''
+    }
 }
 
 function clearDisplay(){
@@ -56,7 +64,13 @@ updateDisplay()
 
 function updateOperatorDisplay(){
     let operatorDisplay = document.getElementById('operationDisplay')
-    operatorDisplay.textContent = output + ' ' + operator + ' ' + operand
+    if (output === 'bruh'){
+        operatorDisplay.textContent = output
+        output = ''
+        operator = ''
+    }else{
+        operatorDisplay.textContent = output + ' ' + operator + ' ' + operand
+    }
 }
 
 function clearOperatorDisplay(){
@@ -109,7 +123,7 @@ keys.forEach(key => {
                 operand += this.value
                 updateOperatorDisplay()
             }
-            else if(number === 0 && operand != '' && operand.length < 15){
+            else if(number === 0 && operand.length < 15){
                 operand += this.value
                 updateOperatorDisplay()
             }

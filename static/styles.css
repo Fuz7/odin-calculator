@@ -41,7 +41,8 @@ body{
 
 .display{
     width: 95%;
-    height: 60px;
+    min-height: 60px;
+    height: auto;
     border: black solid 3px;
     margin: 14px auto 20px;
     text-align: right;
@@ -49,7 +50,6 @@ body{
     padding-top: 10px;
     font-size: 29px;
     font-weight: 600;
-    text-overflow: hidden;
 }
 
 .display > div{
